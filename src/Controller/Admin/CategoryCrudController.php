@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -27,6 +28,11 @@ class CategoryCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name'), 
             BooleanField::new('active'),
             AssociationField::new('parent'),
+            ImageField::new('photo')
+                ->setBasePath('upload/images/categories')
+                ->setUploadDir('public/upload/images/categories')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setSortable(false),
             DateTimeField::new('created_at')->hideWhenCreating(),
         ];
     }

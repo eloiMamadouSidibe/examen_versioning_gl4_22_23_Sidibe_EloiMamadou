@@ -36,6 +36,9 @@ class Category
     #[ORM\Column(nullable: true)]
     private ?bool $active = null;
 
+    #[ORM\Column(length: 64, nullable: true)]
+    private ?string $photo = null;
+
     public function __construct()
     {
         $this->subcategories = new ArrayCollection();
@@ -184,6 +187,18 @@ class Category
     public function setActive(?bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
