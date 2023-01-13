@@ -81,7 +81,7 @@ class Category
 
     public function setParent(?self $parent): self
     {
-        $this->parent_id = $parent;
+        $this->parent = $parent;
 
         return $this;
     }
