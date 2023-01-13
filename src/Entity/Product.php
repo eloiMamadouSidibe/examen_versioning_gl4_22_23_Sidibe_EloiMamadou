@@ -156,6 +156,15 @@ class Product
         return $this->photos;
     }
 
+    public function getPhoto(): ?string
+    {
+        $photos = $this->getPhotos();
+        if ($photos->isEmpty()) {
+            return 'default.png';
+        }
+        else return $photos[0]->getFile();
+    }
+
     public function addPhoto(Photo $photo): self
     {
         if (!$this->photos->contains($photo)) {
