@@ -26,7 +26,6 @@ class DetailsController extends AbstractController
         if(!$product) return $this->redirectToRoute('app_home');
         
         return $this->render('details/index.html.twig', [
-            'categories' => $categories,
             'product' => $product,
         ]);
     }
