@@ -28,7 +28,7 @@ class CategoryCrudController extends AbstractCrudController
             SlugField::new('slug')->setTargetFieldName('name'), 
             BooleanField::new('active'),
             AssociationField::new('parent'),
-            ImageField::new('photo')
+            ImageField::new('photo')->setRequired(false)
                 ->setBasePath('upload/images/categories')
                 ->setUploadDir('public/upload/images/categories')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
