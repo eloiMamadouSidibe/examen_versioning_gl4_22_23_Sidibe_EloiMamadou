@@ -19,8 +19,8 @@ class ArrivalDetailsCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            AssociationField::new('arrival'),
-            AssociationField::new('product'),
+            AssociationField::new('arrival')->autocomplete(),
+            AssociationField::new('product')->autocomplete(),
             IntegerField::new('quantity')
         ];
     }

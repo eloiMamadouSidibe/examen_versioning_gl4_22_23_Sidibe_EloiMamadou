@@ -19,7 +19,7 @@ class CustomerCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideWhenCreating(),
-            AssociationField::new('user'),
+            AssociationField::new('user')->autocomplete(),
             TextField::new('address'),
             TextField::new('city'),
             TextField::new('tel')

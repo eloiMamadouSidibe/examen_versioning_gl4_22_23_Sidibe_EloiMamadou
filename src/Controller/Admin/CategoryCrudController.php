@@ -27,7 +27,7 @@ class CategoryCrudController extends AbstractCrudController
             TextField::new('name'),
             SlugField::new('slug')->setTargetFieldName('name'), 
             BooleanField::new('active'),
-            AssociationField::new('parent'),
+            AssociationField::new('parent')->autocomplete(),
             ImageField::new('photo')->setRequired(false)
                 ->setBasePath('upload/images/categories')
                 ->setUploadDir('public/upload/images/categories')
