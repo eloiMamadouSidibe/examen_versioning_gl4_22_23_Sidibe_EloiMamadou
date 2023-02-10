@@ -19,11 +19,11 @@ class CategoriesExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('categories', [$this, 'getCategories'])
+            new TwigFunction('categories', [$this, 'get'])
         ];
     }
 
-    public function getCategories() 
+    public function get() 
     {
         //return $this->entityManager->getRepository(Category::class)->findAll();
         return $this->entityManager->getRepository(Category::class)->findBy([], ['name' => 'ASC']);

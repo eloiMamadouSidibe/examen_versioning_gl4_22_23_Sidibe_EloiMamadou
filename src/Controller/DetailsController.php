@@ -21,7 +21,6 @@ class DetailsController extends AbstractController
     #[Route('/details/{slug}', name: 'app_details')]
     public function index($slug): Response
     {
-        $categories = $this->entityManager->getRepository(Category::class)->findAll();
         $product = $this->entityManager->getRepository(Product::class)->findOneBySlug($slug);
         if(!$product) return $this->redirectToRoute('app_home');
         
