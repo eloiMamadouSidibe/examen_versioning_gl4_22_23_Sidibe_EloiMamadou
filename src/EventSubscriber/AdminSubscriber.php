@@ -1,6 +1,7 @@
 <?php
 namespace App\EventSubscriber;
 
+use App\Entity\Alert;
 use App\Entity\Arrival;
 use App\Entity\Category;
 use App\Entity\Coupon;
@@ -41,6 +42,7 @@ class AdminSubscriber implements EventSubscriberInterface
             && !($entityInstance instanceof Coupon)
             && !($entityInstance instanceof CouponType)
             && !($entityInstance instanceof Faq)
+            && !($entityInstance instanceof Alert)
             ) return;
         
         if(!$entityInstance->getCreatedAt()) $entityInstance->setCreatedAt(new \DateTimeImmutable);
