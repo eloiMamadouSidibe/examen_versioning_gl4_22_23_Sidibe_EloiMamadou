@@ -34,6 +34,9 @@ class Delivery
     #[ORM\ManyToOne]
     private ?User $delivered_by = null;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $delivered_at = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Delivery
     public function setDeliveredBy(?User $delivered_by): self
     {
         $this->delivered_by = $delivered_by;
+
+        return $this;
+    }
+
+    public function getDeliveredAt(): ?\DateTimeImmutable
+    {
+        return $this->delivered_at;
+    }
+
+    public function setDeliveredAt(\DateTimeImmutable $delivered_at): self
+    {
+        $this->delivered_at = $delivered_at;
 
         return $this;
     }
