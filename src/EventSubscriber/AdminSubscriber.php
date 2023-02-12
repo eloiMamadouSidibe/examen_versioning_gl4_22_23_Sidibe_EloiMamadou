@@ -3,8 +3,12 @@ namespace App\EventSubscriber;
 
 use App\Entity\Arrival;
 use App\Entity\Category;
+use App\Entity\Coupon;
+use App\Entity\CouponType;
 use App\Entity\Customer;
+use App\Entity\Faq;
 use App\Entity\Like;
+use App\Entity\Order;
 use App\Entity\Photo;
 use App\Entity\Product;
 use App\Entity\Review;
@@ -32,7 +36,12 @@ class AdminSubscriber implements EventSubscriberInterface
             && !($entityInstance instanceof Customer)
             && !($entityInstance instanceof Like)
             && !($entityInstance instanceof Review)
-            && !($entityInstance instanceof Arrival)) return;
+            && !($entityInstance instanceof Arrival)
+            && !($entityInstance instanceof Order)
+            && !($entityInstance instanceof Coupon)
+            && !($entityInstance instanceof CouponType)
+            && !($entityInstance instanceof Faq)
+            ) return;
         
         if(!$entityInstance->getCreatedAt()) $entityInstance->setCreatedAt(new \DateTimeImmutable);
     }
